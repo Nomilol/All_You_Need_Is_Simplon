@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('/check', function(){
     return view('simplonien.checkMail');
 });
+
+Route::post('/check', 'SimplonienController@postCheckMail');
