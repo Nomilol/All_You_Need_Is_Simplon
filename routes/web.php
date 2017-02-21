@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('simplonien.home');
+});
+
+Route::get('/check', function(){
+    return view('simplonien.checkMail');
 });
