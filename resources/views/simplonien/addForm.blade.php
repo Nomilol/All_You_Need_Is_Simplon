@@ -26,7 +26,7 @@
       <label for="ville_formation">Ville de Formation</label><input type="text" name="ville_formation" required />
     </div>
     <div class="ui field required">
-      <label for="promotion">N° de Promotion</label><input type="number" name="promotion" required />
+      <label for="promo">N° de Promotion</label><input type="number" name="promo" required />
     </div>
     <div class="ui field">
       <label for="github">Lien Github</label><input type="text" name="github" />
@@ -52,6 +52,7 @@
     <div class="ui field">
       <label for="blog">Lien du Blog</label><input type="text" name="blog" />
     </div>
+    {{ csrf_field() }}
 
     <button type="submit" class="ui green button">Ajouter</button>
 
