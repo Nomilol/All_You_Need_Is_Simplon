@@ -34,10 +34,15 @@ class NonceController extends Controller
     public function verifyToken(){
       $exists = \App\Nonce::where('nonce', $_GET['token'])->exists();
       if($exists){
-        return view('simplonien.addForm');
+        $adding = \App\Nonce::where('nonce', $_GET['token'])->first()->adding;
+        if($adding) {
+          return view('simplonien.addForm');
+        }
+        else {
+          return view('simplonien.editForm');
+        }
       }
-      else{
-        return view('simplonien.home');
-      }
+
+      return view('simplonien.home');
     }
 }
