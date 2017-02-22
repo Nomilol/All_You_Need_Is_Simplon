@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 class NonceController extends Controller
 {
   public function create(){
-      $nonce = null;
-      while(!$nonce){
+    $exists = true;
+    $nonce = null;
+      while($exists){
         $nonce = str_random(66);
-        $email = \App\Nonce::where('nonce', $nonce)->exists();
+        $exists = \App\Nonce::where('nonce', $nonce)->exists();
       }
       return $nonce;
     }
