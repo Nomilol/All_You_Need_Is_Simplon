@@ -18,7 +18,7 @@ class SimplonienController extends Controller
         }
         else {
             (new NonceController)->delete($testedEmail);
-            (new NonceController)->save($testedEmail);
+            (new NonceController)->save($testedEmail, true);
             $this->sendAddMail($testedEmail);
             return view('simplonien.add');
         }

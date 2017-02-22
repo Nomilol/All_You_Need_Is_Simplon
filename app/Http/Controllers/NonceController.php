@@ -18,10 +18,11 @@ class NonceController extends Controller
       return $nonce;
     }
 
-    public function save($email){
+    public function save($email, $adding){
       $nonce = new Nonce;
 
       $nonce->email = $email;
+      $nonce->adding = $adding;
       $nonce->nonce = $this->create();
       $nonce->save();
     }
