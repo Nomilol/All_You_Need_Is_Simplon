@@ -15,10 +15,7 @@
       </header>
 
 
-      <div class="map">
-        <div id="mapid"></div>
-      </div>
-
+      
       @yield('content')
 
 
