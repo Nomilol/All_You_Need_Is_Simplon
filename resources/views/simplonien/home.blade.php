@@ -8,7 +8,7 @@
   </div>
 </div>
 <div class="map">
-
+  <div id="mapid"></div>
 </div>
 
 @stop
