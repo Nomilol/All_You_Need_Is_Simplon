@@ -20,15 +20,16 @@ class SimplonienController extends Controller
             return view('simplonien.add');
         }
     }
-<<<<<<< HEAD
+
     public function getData(){
       $simploniens = Simplonien::all();
       return view('layout.home', ['simploniens' => $simploniens]);
       dd();
-=======
+
 
     public function sendAddMail($email){
         Mail::to($email)->send(new AddProfile());
->>>>>>> 74e17afe93cd4c6ebdc2028336096b02eff61b01
+
+
     }
 }
