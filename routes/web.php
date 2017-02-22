@@ -25,8 +25,4 @@ Route::get('/data', 'SimplonienController@getData');
 
 Route::get('/verifyToken', 'NonceController@verifyToken');
 
-/*
-    url avec token = blabalabalbala
-    methode qui vérifie si le token de l'url est dans la db
-    si oui, alors renvoit vers la page d'ajout sinon : renvoit vers la home
-*/
+Route::post('/simplonien/add', 'SimplonienController@addSimplonien');
