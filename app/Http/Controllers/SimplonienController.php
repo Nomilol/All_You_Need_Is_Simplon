@@ -17,4 +17,9 @@ class SimplonienController extends Controller
             return view('simplonien.add');
         }
     }
+    public function getData(){
+      $simploniens = Simplonien::all();
+      return view('layout.home', ['simploniens' => $simploniens]);
+      dd();
+    }
 }

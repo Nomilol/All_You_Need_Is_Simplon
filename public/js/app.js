@@ -71,16 +71,26 @@
 /***/ 10:
 /***/ (function(module, exports) {
 
-function initmap() {
-    var map = new L.Map('mapid');
-    var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    var osmAttrib = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-    var osm = new L.TileLayer(osmUrl, { minZoom: 1, maxZoom: 18, attribution: osmAttrib });
-
-    map.setView(new L.LatLng(46, 2), 6);
-    map.addLayer(osm);
-}
-initmap();
+(function () {
+  var app = {
+    init: function init() {
+      app.showMap();
+      app.addMarkers();
+    },
+    showMap: function showMap() {
+      var map = new L.Map('mapid', { scrollWheelZoom: false });
+      var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+      var osmAttrib = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+      var osm = new L.TileLayer(osmUrl, { minZoom: 1, maxZoom: 18, attribution: osmAttrib });
+      map.setView(new L.LatLng(46, 2), 6);
+      map.addLayer(osm);
+    },
+    addMarkers: function addMarkers() {
+      L.marker([51.5, -0.09]).addTo(map).bindPopup('A pretty CSS3 popup.<br> Easily customizable.').openPopup();
+    }
+  };
+  app.init();
+})();
 
 /***/ }),
 

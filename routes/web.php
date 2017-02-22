@@ -20,3 +20,5 @@ Route::get('/check', function(){
 });
 
 Route::post('/check', 'SimplonienController@postCheckMail');
+
+Route::get('/data', 'SimplonienController@getData');
