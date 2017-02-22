@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Simplonien;
+use App\Nonce;
 use Illuminate\Http\Request;
 
 class NonceController extends Controller
@@ -15,5 +16,13 @@ class NonceController extends Controller
         $exists = \App\Nonce::where('nonce', $nonce)->exists();
       }
       return $nonce;
+    }
+
+    public function save($email){
+      $nonce = new Nonce;
+
+      $nonce->email = $email;
+      $nonce->nonce = $this->create();
+      $nonce->save();
     }
 }

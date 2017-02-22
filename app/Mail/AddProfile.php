@@ -6,20 +6,22 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Nonce;
 
 class AddProfile extends Mailable
 {
     use Queueable, SerializesModels;
 
-    // public $nonce;
+    public $nonce = null;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($email)
     {
-        // $this->nonce = $nonce;
+        $instance = \App\Nonce::where('email', $email)->first();
+        $this->nonce = $instance->nonce;
     }
 
     /**
