@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1.0.2/leaflet.css"/>
 	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet.markercluster/1.0.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css">
     <link rel="stylesheet" href="/css/app.css">
 
     <title></title>
@@ -15,7 +16,7 @@
       </header>
 
 
-      
+
       @yield('content')
 
 

@@ -24,6 +24,12 @@ class SimplonienController extends Controller
         }
     }
 
+    public function getData(){
+      $simploniens = Simplonien::all();
+      return view('layout.home', ['simploniens' => $simploniens]);
+      dd();
+    }
+
     public function sendAddMail($email){
         Mail::to($email)->send(new AddProfile($email));
     }
