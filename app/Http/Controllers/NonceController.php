@@ -29,4 +29,14 @@ class NonceController extends Controller
     public function delete($email){
       $oldNonces = \App\Nonce::where('email', $email)->delete();
     }
+
+    public function verifyToken(){
+      $exists = \App\Nonce::where('nonce', $_GET['token'])->exists();
+      if($exists){
+        return view('simplonien.addForm');
+      }
+      else{
+        return view('simplonien.home');
+      }
+    }
 }
