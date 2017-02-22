@@ -25,4 +25,8 @@ class NonceController extends Controller
       $nonce->nonce = $this->create();
       $nonce->save();
     }
+
+    public function delete($email){
+      $oldNonces = \App\Nonce::where('email', $email)->delete();
+    }
 }
