@@ -26,3 +26,5 @@ Route::get('/data', 'SimplonienController@getData');
 Route::get('/verifyToken', 'NonceController@verifyToken');
 
 Route::post('/simplonien/add', 'SimplonienController@addSimplonien');
+
+Route::post('/simplonien/edit/{id}', 'SimplonienController@postEditSimplonien');
