@@ -39,7 +39,9 @@ class NonceController extends Controller
           return view('simplonien.addForm');
         }
         else {
-          return view('simplonien.editForm');
+          $email = \App\Nonce::where('nonce', $_GET['token'])->first()->email;
+          $simplonien = \App\Simplonien::where('email', $email)->first();
+          return view('simplonien.editForm', ['simplonien' => $simplonien]);
         }
       }
 
