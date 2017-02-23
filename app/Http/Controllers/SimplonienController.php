@@ -36,6 +36,10 @@ class SimplonienController extends Controller
         Mail::to($email)->send(new AddProfile($email));
     }
 
+    public function sendEditMail($email){
+        Mail::to($email)->send(new EditProfile($email));
+    }
+
     public function addSimplonien(Request $request){
         $simplonien = new Simplonien;
         $simplonien->nom = $request->nom;
