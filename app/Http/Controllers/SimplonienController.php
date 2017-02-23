@@ -14,6 +14,8 @@ class SimplonienController extends Controller
         $testedEmail = $request->email;
         $email = \App\Simplonien::where('email', $testedEmail)->exists();
         if($email){
+            (new NonceController)->delete($testedEmail);
+            (new NonceController)->save($testedEmail, false);
             return view('simplonien.edit');
         }
         else {
