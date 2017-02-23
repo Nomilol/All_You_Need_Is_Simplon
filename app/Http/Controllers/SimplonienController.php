@@ -7,6 +7,7 @@ use App\Simplonien;
 use App\Http\Controllers\NonceController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AddProfile;
+use App\Mail\EditProfile;
 
 class SimplonienController extends Controller
 {
@@ -16,6 +17,7 @@ class SimplonienController extends Controller
         if($email){
             (new NonceController)->delete($testedEmail);
             (new NonceController)->save($testedEmail, false);
+            $this->sendEditMail($testedEmail);
             return view('simplonien.edit');
         }
         else {
