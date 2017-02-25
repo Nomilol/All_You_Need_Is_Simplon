@@ -6,27 +6,27 @@
 
   <h2 class="ui centered big header">Ajouter son profil de Simplonien</h2>
 
-  <form class="ui form" action="/simplonien/add" method="post">
+  <form class="ui form" action="/simplonien/add" id="addForm" method="post">
     <div class="ui field required">
-      <label for="nom">Nom</label><input type="text" name="nom" required />
+      <label for="nom">Nom</label><input type="text" name="nom" value="blablabla" required />
     </div>
     <div class="ui field required">
-      <label for="prenom">Prénom</label><input type="text" name="prenom" required />
+      <label for="prenom">Prénom</label><input type="text" name="prenom" value="blablabla" required />
     </div>
     <div class="ui field required">
-      <label for="email">Email</label><input type="text" name="email" required />
+      <label for="email">Email</label><input type="text" name="email" value="blablabla" required />
     </div>
     <div class="ui field">
       <label for="telephone">Téléphone</label><input type="number" name="telephone" />
     </div>
     <div class="ui field required">
-      <label for="code_postal">Code Postal</label><input type="text" name="code_postal" required />
+      <label for="code_postal">Code Postal</label><input type="text" name="code_postal" value="31200" required />
     </div>
     <div class="ui field required">
-      <label for="ville_formation">Ville de Formation</label><input type="text" name="ville_formation" required />
+      <label for="ville_formation">Ville de Formation</label><input type="text" name="ville_formation" value="blablabla" required />
     </div>
     <div class="ui field required">
-      <label for="promo">N° de Promotion</label><input type="number" name="promo" required />
+      <label for="promo">N° de Promotion</label><input type="number" name="promo" value="3" required />
     </div>
     <div class="ui field">
       <label for="github">Lien Github</label><input type="text" name="github" />
@@ -54,7 +54,7 @@
     </div>
     {{ csrf_field() }}
 
-    <button type="submit" class="ui green button">Ajouter</button>
+    <button type="submit" class="ui green button" id="addButton">Ajouter</button>
 
   </form>
 

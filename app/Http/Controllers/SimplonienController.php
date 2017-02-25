@@ -86,7 +86,10 @@ class SimplonienController extends Controller
         return view('simplonien.home');
     }
 
-    public function AsyncAddSimplonien(Request $request){
+    public function asyncAddSimplonien(Request $request){
+        $url = 'http://nominatim.openstreetmap.org/search?postalcode='. $request->code_postal .'&format=json&country=france';
+        $coordinates = json_decode(file_get_contents($url));
+
         $simplonien = new Simplonien;
         $simplonien->nom = $request->nom;
         $simplonien->prenom = $request->prenom;
@@ -103,25 +106,11 @@ class SimplonienController extends Controller
         $simplonien->facebook = $request->facebook;
         $simplonien->site_perso = $request->site_perso;
         $simplonien->blog = $request->blog;
+        $simplonien->latitude = $coordinates[0]->lat;
+        $simplonien->longitude = $coordinates[0]->lon;
 
         $simplonien->save();
+        return response()->json(["status" => 'OK']);
 
-        return response()->json([
-            'nom' => $simplonien->nom,
-            'prenom' => $simplonien->prenom,
-            'email' => $simplonien->email,
-            'telephone' => $simplonien->telephone,
-            'code_postal' => $simplonien->code_postal,
-            'ville_formation' => $simplonien->ville_formation,
-            'promo' => $simplonien->promo,
-            'github' => $simplonien->github,
-            'cv' => $simplonien->cv,
-            'punchline' => $simplonien->punchline,
-            'linkedin' => $simplonien->linkedin,
-            'twitter' => $simplonien->twitter,
-            'facebook' => $simplonien->facebook,
-            'site_perso' => $simplonien->site_perso,
-            'blog' => $simplonien->blog,
-        ]);
     }
 }
